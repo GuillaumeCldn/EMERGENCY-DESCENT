@@ -1,0 +1,123 @@
+\documentclass[12pt,oneside]{scrreprt}
+
+% ---------------------------------------------------------
+% PACKAGES
+% ---------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{fmtcount}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, matrix, decorations.pathreplacing, calc}
+\usepackage{wrapfig}
+%\usetikzlibrary{graphs, graphdrawing}
+%\usegdlibrary{circular}
+
+% Better diff symbol
+\newcommand{\diff}{\ensuremath{\operatorname{d}\!}}
+
+% ---------------------------------------------------------
+% MISE EN PAGE
+% ---------------------------------------------------------
+\usepackage[margin=2.5cm]{geometry}
+
+\setlength{\parskip}{0.85em}
+\setlength{\parindent}{1.2em}
+\linespread{1.15}
+
+% ---------------------------------------------------------
+% TITRES (méthode KOMA-Script)
+% ---------------------------------------------------------
+\RedeclareSectionCommand[
+beforeskip=1.8em plus 0.2em minus 0.2em,
+afterskip=1em,
+font=\normalfont\huge\bfseries]{chapter}
+
+\RedeclareSectionCommand[
+beforeskip=1.4em plus 0.2em minus 0.2em,
+afterskip=0.8em,
+font=\normalfont\Large\bfseries]{section}
+
+\RedeclareSectionCommand[
+beforeskip=1em plus 0.2em minus 0.2em,
+afterskip=0.5em,
+font=\normalfont\large\bfseries]{subsection}
+
+% ---------------------------------------------------------
+% TITRE DU RAPPORT
+% ---------------------------------------------------------
+\title{\Huge \bfseries Functional Requirement Document}
+
+\author{%
+	\Large Luc Flohr \\
+	\texttt{luc.flohr@alumni.enac.fr}\\[1.2em]
+	\Large Balzs Palotas \\
+	\texttt{balzs.palotas@alumni.enac.fr}\\[1.2em]
+	\Large Guillaume Claudon \\
+	\texttt{guillaume.claudon@alumni.enac.fr}\\[1.2em]
+	\large École Nationale de l’Aviation Civile (ENAC) %
+}
+
+\date{Mars 2026}
+
+
+
+% ---------------------------------------------------------
+
+\publishers{
+	\includegraphics[width=4cm]{logo_ENAC.png}
+}
+
+\begin{document}
+% ---------------------------------------------------------
+
+\maketitle
+
+
+% ===============================================================
+\chapter{Executive summary}
+% ===============================================================
+
+This document is the functional specification of the EMERGENCY DESCENT function. It provides “aircraft-level” requirements that will be the main input for systems specifications.
+
+The purpose of the EMERGENCY DESCENT function is to have the aircraft descend to a safe altitude in the case of loss of cabin pressurisation.
+
+Some requirements need to be consolidated, in particular those involving response time (refer to §5.1)
+
+\tableofcontents
+\nopagebreak
+\listoffigures
+\clearpage
+
+% ===============================================================
+\chapter{Record of revisions}
+% ===============================================================
+% ===============================================================
+\chapter{General}
+% ===============================================================
+% ===============================================================
+\chapter{Function description}
+% ===============================================================
+% ===============================================================
+\chapter{Operational scenarios}
+% ===============================================================
+% ===============================================================
+\chapter{Requirements}
+% ===============================================================
+% ===============================================================
+\chapter{Open items}
+% ===============================================================
+% ===============================================================
+\chapter{Appendices}
+% ===============================================================
+
+\end{document}
