@@ -17,6 +17,7 @@
 \usepackage{microtype}
 \usepackage{float}
 \usepackage{fmtcount}
+\usepackage{fancyhdr}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta, matrix, decorations.pathreplacing, calc}
 \usepackage{wrapfig}
@@ -34,6 +35,18 @@
 \setlength{\parskip}{0.85em}
 \setlength{\parindent}{1.2em}
 \linespread{1.15}
+
+% ---------------------------------------------------------
+% En-têtes et pieds de page
+% ---------------------------------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[L]{\includegraphics[width=0.1\textwidth]{logo_enac.png}}
+\fancyhead[R]{\textbf{FRD EMERGENCY DESCENT function} V01}
+
+\fancyfoot[R]{\thepage}
 
 % ---------------------------------------------------------
 % TITRES (méthode KOMA-Script)
@@ -131,9 +144,11 @@ Some requirements need to be consolidated, in particular those involving respons
 		\hline
 	\end{tabularx}
 \end{table}
+
 % ===============================================================
 \chapter{General}
 % ===============================================================
+
 % ===============================================================
 \chapter{Function description}
 % ===============================================================
