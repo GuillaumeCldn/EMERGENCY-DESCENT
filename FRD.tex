@@ -17,6 +17,7 @@
 \usepackage{microtype}
 \usepackage{float}
 \usepackage{fmtcount}
+\usepackage{fancyhdr}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta, matrix, decorations.pathreplacing, calc}
 \usepackage{wrapfig}
@@ -24,7 +25,7 @@
 %\usegdlibrary{circular}
 
 % Better diff symbol
-\newcommand{\diff}{\ensuremath{\operatorname{d}\!}}
+% \newcommand{\diff}{\ensuremath{\operatorname{d}\!}}
 
 % ---------------------------------------------------------
 % MISE EN PAGE
@@ -34,6 +35,22 @@
 \setlength{\parskip}{0.85em}
 \setlength{\parindent}{1.2em}
 \linespread{1.15}
+
+% ---------------------------------------------------------
+% En-têtes et pieds de page
+% ---------------------------------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\setlength{\headheight}{24pt}
+
+\fancyhead[L]{\includegraphics[width=0.06\textwidth]{logo_enac.png}}
+\fancyhead[R]{\scriptsize{\textbf{FRD EMERGENCY DESCENT function}} \\ V01}
+
+\fancyfoot[R]{\thepage}
+
+\renewcommand{\chapterpagestyle}{fancy}
 
 % ---------------------------------------------------------
 % TITRES (méthode KOMA-Script)
@@ -84,24 +101,9 @@ font=\normalfont\large\bfseries]{subsection}
 \end{titlepage}
 
 
-% \author{%
-% 	\Large Luc Flohr \\
-% 	\texttt{luc.flohr@alumni.enac.fr}\\[1.2em]
-% 	\Large Balazs Palotas \\
-% 	\texttt{balazs.palotas@alumni.enac.fr}\\[1.2em]
-% 	\Large Guillaume Claudon \\
-% 	\texttt{guillaume.claudon@alumni.enac.fr}\\[1.2em]
-% 	\large École Nationale de l’Aviation Civile (ENAC) %
-% }
-%
-% \date{Mars 2026}
-%
-% \publishers{
-% 	\includegraphics[width=4cm]{logo_ENAC.png}
-% }
-
-% \maketitle
-
+% ---------------------------------------------------------
+% Document
+% ---------------------------------------------------------
 
 % ===============================================================
 \chapter{Executive summary}
@@ -111,7 +113,6 @@ This document is the functional specification of the EMERGENCY DESCENT function.
 
 The purpose of the EMERGENCY DESCENT function is to have the aircraft descend to a safe altitude in the case of loss of cabin pressurisation.
 
-Some requirements need to be consolidated, in particular those involving response time (refer to §5.1)
 
 \tableofcontents
 \nopagebreak
@@ -127,25 +128,41 @@ Some requirements need to be consolidated, in particular those involving respons
 		\hline
 		\textbf{Issue} & \textbf{DATE} & \textbf{Reason for revision} \\
 		\hline
-		V01 & 26-02-2026 & First issue \\
+		V01 & 26/02/2026 & First issue \\
 		\hline
 	\end{tabularx}
 \end{table}
+
 % ===============================================================
 \chapter{General}
 % ===============================================================
+
+\section{Objective}
+
+\section{Applicability}
+
+\section{Reference documents}
+
+\section{Acronyms}
+
+\section{Definitions}
+
 % ===============================================================
 \chapter{Function description}
 % ===============================================================
+
 % ===============================================================
 \chapter{Operational scenarios}
 % ===============================================================
+
 % ===============================================================
 \chapter{Requirements}
 % ===============================================================
+
 % ===============================================================
 \chapter{Open items}
 % ===============================================================
+
 % ===============================================================
 \chapter{Appendices}
 % ===============================================================
