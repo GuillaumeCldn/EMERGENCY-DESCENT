@@ -153,6 +153,7 @@ The purpose of the EMERGENCY DESCENT function is to have the aircraft descend to
 		AP & Autopilot \\
 		ND & Navigation Display \\
 		FCU & Flight Control Unit \\
+		IAS & Indicated Air Speed \\
 		MSA & Minimum Safe Altitude
 	\end{tabularx}
 \end{table}
@@ -163,7 +164,21 @@ The purpose of the EMERGENCY DESCENT function is to have the aircraft descend to
 \chapter{Function Description}
 % ===============================================================
 
-The purpose of the EMERGENCY DESCENT function is to navigate the aircraft from its current altitude to \SI{10000}{ft} or the MSA in the current sector, following the fastest descent profile.  
+The purpose of the EMERGENCY DESCENT function is to navigate the aircraft from its current altitude to \SI{10000}{ft} or the MSA in the current sector, following the fastest descent profile.
+
+The EMERGENCY DESCENT function provides the following features:
+
+\begin{itemize}
+	\item It allows the flight crew to activate the EMERGENCY DESCENT. 
+	\item Upon activation of the EMERGENCY DESCENT:
+		\subitem The aircraft begins descending to \SI{10000}{ft} at \SI{250}{kts} IAS.
+		\subitem It allows the flight crew to select a desired altitude if different from \SI{10000}{ft}. 
+		\subitem It allows the flight crew to set a desired IAS for the descent. 
+	\item Upon arriving to the selected altitude, the aircraft levels off. 
+	\item It allows the flight crew to deactivate the EMERGENCY DESCENT, in which case the aircraft levels off at its current altitude.
+\end{itemize}
+
+\textbf{Note:} The flight crew is responsible for extending the airbrakes to increase the vertical speed of the descent. They are also responsible for the retraction of the airbrakes when the aircraft levels off. 
 
 % ===============================================================
 \chapter{Operational scenarios}
