@@ -17,14 +17,15 @@
 \usepackage{microtype}
 \usepackage{float}
 \usepackage{fmtcount}
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta, matrix, decorations.pathreplacing, calc}
-\usepackage{wrapfig}
-%\usetikzlibrary{graphs, graphdrawing}
-%\usegdlibrary{circular}
+\usepackage{fancyhdr}
+% \usepackage{tikz}
+% \usetikzlibrary{arrows.meta, matrix, decorations.pathreplacing, calc}
+% \usepackage{wrapfig}
+% \usetikzlibrary{graphs, graphdrawing}
+% \usegdlibrary{circular}
 
 % Better diff symbol
-\newcommand{\diff}{\ensuremath{\operatorname{d}\!}}
+% \newcommand{\diff}{\ensuremath{\operatorname{d}\!}}
 
 % ---------------------------------------------------------
 % MISE EN PAGE
@@ -34,6 +35,22 @@
 \setlength{\parskip}{0.85em}
 \setlength{\parindent}{1.2em}
 \linespread{1.15}
+
+% ---------------------------------------------------------
+% En-têtes et pieds de page
+% ---------------------------------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\setlength{\headheight}{24pt}
+
+\fancyhead[L]{\includegraphics[width=0.06\textwidth]{logo_enac.png}}
+\fancyhead[R]{\scriptsize{\textbf{FRD EMERGENCY DESCENT function}} \\ V01}
+
+\fancyfoot[R]{\thepage}
+
+\renewcommand{\chapterpagestyle}{fancy}
 
 % ---------------------------------------------------------
 % TITRES (méthode KOMA-Script)
@@ -67,10 +84,10 @@ font=\normalfont\large\bfseries]{subsection}
     {\Huge \bfseries Functional Requirement Document\par}
     \vspace{1cm}
     
-    {\LARGE \textbf{DIRECT TO function}\par}
+    {\LARGE \textbf{EMERGENCY DESCENT function}\par}
     \vspace{2.5cm}
     
-    {\large Version \textbf{V01} \hspace{1cm} Date \textbf{26/02/2026}\par}
+    {\large Version \textbf{V01} \hspace{1cm} Date \textbf{09/03/2026}\par}
     
     \vfill
     
@@ -84,24 +101,9 @@ font=\normalfont\large\bfseries]{subsection}
 \end{titlepage}
 
 
-% \author{%
-% 	\Large Luc Flohr \\
-% 	\texttt{luc.flohr@alumni.enac.fr}\\[1.2em]
-% 	\Large Balazs Palotas \\
-% 	\texttt{balazs.palotas@alumni.enac.fr}\\[1.2em]
-% 	\Large Guillaume Claudon \\
-% 	\texttt{guillaume.claudon@alumni.enac.fr}\\[1.2em]
-% 	\large École Nationale de l’Aviation Civile (ENAC) %
-% }
-%
-% \date{Mars 2026}
-%
-% \publishers{
-% 	\includegraphics[width=4cm]{logo_ENAC.png}
-% }
-
-% \maketitle
-
+% ---------------------------------------------------------
+% Document
+% ---------------------------------------------------------
 
 % ===============================================================
 \chapter{Executive summary}
@@ -111,7 +113,6 @@ This document is the functional specification of the EMERGENCY DESCENT function.
 
 The purpose of the EMERGENCY DESCENT function is to have the aircraft descend to a safe altitude in the case of loss of cabin pressurisation.
 
-Some requirements need to be consolidated, in particular those involving response time (refer to §5.1)
 
 \tableofcontents
 \nopagebreak
@@ -121,51 +122,151 @@ Some requirements need to be consolidated, in particular those involving respons
 % ===============================================================
 \chapter{Record of revisions}
 % ===============================================================
+
 \begin{table}[h]
     \centering
     \begin{tabularx}{\textwidth}{|c|X|X|}
 		\hline
 		\textbf{Issue} & \textbf{DATE} & \textbf{Reason for revision} \\
 		\hline
-		V01 & 26-02-2026 & First issue \\
+		V01 & 09/03/2026 & First issue \\
 		\hline
 	\end{tabularx}
 \end{table}
+
 % ===============================================================
 \chapter{General}
 % ===============================================================
+
 \section{Objective}
-% ===============================================================
-% ===============================================================
+
+This document is the functional specification for the EMERGENCY DESCENT function.
+\begin{itemize}
+	\item Section \ref{sec:FD} provides a high-level description of the EMERGENCY DESCENT function. 
+	\item Section \ref{sec:OS} describes operational scenarios of the EMERGENCY DESCENT function. 
+	\item Section \ref{sec:reqs} contains "aircraft level" requirements for the EMERGENCY DESCENT function. 
+\end{itemize}
 
 \section{Applicability}
-% ===============================================================
-% ===============================================================
+
+\cite{BAD} is the baseline for this functional specification. Thus this document applies to any aircraft described by \cite{BAD}.
 
 \section{Reference documents}
-% ===============================================================
-% ===============================================================
+
+{
+\renewcommand{\chapter}[2]{} % Neutralize the automatic header
+\bibliographystyle{plain}
+\nocite{*}
+\bibliography{bibFRD}
+}
 
 \section{Acronyms}
-% ===============================================================
-% ===============================================================
+
+
+\begin{table}[h]
+    \centering
+    \begin{tabularx}{\textwidth}{lX}
+		AP & Autopilot \\
+		ND & Navigation Display \\
+		FCU & Flight Control Unit \\
+		IAS & Indicated Air Speed \\
+		MSA & Minimum Safe Altitude
+	\end{tabularx}
+\end{table}
 
 \section{Definitions}
-% ===============================================================
-% ===============================================================
 
 % ===============================================================
-\chapter{Function description}
+\chapter{Function Description}
+\label{sec:FD}
 % ===============================================================
+
+The purpose of the EMERGENCY DESCENT function is to navigate the aircraft from its current altitude to \SI{10000}{ft} or the MSA in the current sector, following the fastest descent profile.
+
+The EMERGENCY DESCENT function provides the following features:
+
+\begin{itemize}
+	\item It allows the flight crew to activate the EMERGENCY DESCENT. 
+	\item Upon activation of the EMERGENCY DESCENT:
+		\subitem The aircraft begins descending to \SI{10000}{ft} at \SI{250}{kts} IAS.
+		\subitem It allows the flight crew to select a desired altitude if different from \SI{10000}{ft}. 
+		\subitem It allows the flight crew to set a desired IAS for the descent. 
+	\item Upon arriving to the selected altitude, the aircraft levels off. 
+	\item It allows the flight crew to deactivate the EMERGENCY DESCENT, in which case the aircraft levels off at its current altitude.
+\end{itemize}
+
+\textbf{Note:} The flight crew is responsible for extending the airbrakes to increase the vertical speed of the descent. They are also responsible for the retraction of the airbrakes when the aircraft levels off. 
+
 % ===============================================================
-\chapter{Operational scenarios}
+\chapter{Operational Scenarios}
+\label{sec:OS}
 % ===============================================================
+
+In nominal scenario 1, it is an Emergency descent with structural damage.
+
+In nominal scenario 2, it is an Emergency descent without structural damage.
+
+\section{Nominal scenario 1}
+
+\textbf{Initial conditions:} The aircraft is flying at a typical A320 cruise altitude, both pilots are in the
+cockpit, the autopilot is engaged. An explosive depressurization occurs resulting in
+structural damage to the aircraft.
+
+\textbf{STEP 1 :} A visual and an audio alert inform the pilots of the situation. The pilots put
+on their oxygen mask.
+
+\textbf{STEP 2 :} The system sets the altitude to \SI{10000}{ft} and the speed to \SI{250}{kts} ; and sets
+the heading to Selected Mode. There is an audio announcement of these actions,
+and the information is displayed on the FCU. The SPD/MACH knob is set to SPD.
+Terrain mode is displayed on the ND. The actions will be active (Managed Mode) after a
+delay (few seconds). Meanwhile,  pilots can still modify the instructions before they become
+active.
+
+\textbf{STEP 3 :} the system alerts the air traffic controller of the situation (Emergency depressurization and Emergency descent) + target altitude and speed (+ vertical speed ?).
+
+\textbf{STEP 4 :} pilots manage the systems and communications with ATC. They deploy
+the speedbrakes as needed.
+
+
+\section{Nominal scenario 2}
+
+\textbf{Initial conditions:} The aircraft is flying at a typical A320 cruise altitude, both pilots are in the
+cockpit, the autopilot is engaged. An explosive depressurization occurs without
+structural damage to the aircraft.
+
+\textbf{STEP 1 :} A visual and audio alert informs the pilots of the situation. The pilots put on
+their oxygen mask.
+
+\textbf{STEP 2 :} The system sets the altitude to \SI{10000}{ft} and the speed to \SI{250}{kts} ; and sets
+the heading to Selected Mode. There is an audio announcement of these actions,
+and the information is displayed on the FCU. The SPD/MACH knob is set to SPD.
+Terrain mode is displayed on the ND. The actions will be active (Managed Mode) after a
+delay. Meanwhile, pilots can still modify the instructions before they become
+active.
+
+\textbf{STEP 3 :} pilots set speed to selected mode and increase it to VMO.
+
+\textbf{STEP 4 :} the system alerts the air traffic controller of the situation (Emergency
+ depressurization and Emergency descent) + target altitude and speed (+ vertical speed ?).
+
+\textbf{STEP 5 :} pilots manage the systems and communications with ATC. They deploy
+the speed brakes as needed.
+
+\section{Additional scenarios}
+
+None
+
+(ideas for other scenarios : during climb, descent, spurious activation, …)
+
 % ===============================================================
 \chapter{Requirements}
+\label{sec:reqs}
 % ===============================================================
+
 % ===============================================================
 \chapter{Open items}
 % ===============================================================
+
 % ===============================================================
 \chapter{Appendices}
 % ===============================================================
