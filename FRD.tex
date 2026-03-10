@@ -161,19 +161,6 @@ This document is the functional specification for the EMERGENCY DESCENT function
 \bibliography{bibFRD}
 }
 
-<<<<<<< Balazs
-\section{Acronyms}
-
-
-\begin{table}[h]
-    \centering
-    \begin{tabularx}{\textwidth}{lX}
-		AP & Autopilot \\
-		ND & Navigation Display \\
-		FCU & Flight Control Unit \\
-		IAS & Indicated Air Speed \\
-		MSA & Minimum Safe Altitude
-=======
 \newpage
 \section{Acronyms}
 
@@ -192,7 +179,6 @@ This document is the functional specification for the EMERGENCY DESCENT function
 		SPD & Speed \\
 		HDG & Heading \\
 		TERR & Terrain \\
->>>>>>> main
 	\end{tabularx}
 \end{table}
 
@@ -203,26 +189,13 @@ This document is the functional specification for the EMERGENCY DESCENT function
 \label{sec:FD}
 % ===============================================================
 
-<<<<<<< Balazs
-The purpose of the EMERGENCY DESCENT function is to navigate the aircraft from its current altitude to \SI{10000}{ft} or the MSA in the current sector, following the fastest descent profile.
-=======
 The purpose of the EMERGENCY DESCENT function is to navigate the aircraft from its current altitude to \SI{10000}{ft} or the MSA, following the fastest safe descent profile.
->>>>>>> main
 
 The EMERGENCY DESCENT function provides the following features:
 
 \begin{itemize}
 	\item It allows the flight crew to activate the EMERGENCY DESCENT. 
 	\item Upon activation of the EMERGENCY DESCENT:
-<<<<<<< Balazs
-		\subitem The aircraft begins descending to \SI{10000}{ft} at \SI{250}{kts} IAS.
-		\subitem It allows the flight crew to select a desired altitude if different from \SI{10000}{ft}. 
-		\subitem It allows the flight crew to set a desired IAS for the descent. 
-	\item Upon arriving to the selected altitude, the aircraft levels off. 
-	\item It allows the flight crew to deactivate the EMERGENCY DESCENT, in which case the aircraft levels off at its current altitude.
-\end{itemize}
-
-=======
 		\subitem The aircraft begins descending to \SI{10000}{ft}, or the published MSA (whichever is greater) at \SI{250}{kts} IAS.
 		\subitem It allows the flight crew to select a desired altitude if different the altitude selected by the EMERGENCY DESCENT function.
 		\subitem It allows the flight crew to set a desired IAS for the descent. 
@@ -236,7 +209,6 @@ The EMERGENCY DESCENT function provides the following features:
 % cf. WhatsApp
 % Delay to start descent
 
->>>>>>> main
 \textbf{Note:} The flight crew is responsible for extending the airbrakes to increase the vertical speed of the descent. They are also responsible for the retraction of the airbrakes when the aircraft levels off. 
 
 % ===============================================================
@@ -244,37 +216,6 @@ The EMERGENCY DESCENT function provides the following features:
 \label{sec:OS}
 % ===============================================================
 
-<<<<<<< Balazs
-In nominal scenario 1, it is an Emergency descent with structural damage, it is assumed that both pilots remain conscious throughout the emergency. 
-
-In nominal scenario 2, it is an Emergency descent without structural damage,it is assumed that both pilots remain conscious throughout the emergency.
-
-\section{Nominal scenario 1}
-
-\textbf{Initial conditions:} The aircraft is flying at a typical A320 cruise altitude, both pilots are in the cockpit, the autopilot and auto-thrust are engaged. An explosive depressurization occurs resulting in
-structural damage to the aircraft.
-
-\textbf{STEP 1 :} A visual and an audio alert inform the pilots of the situation. 
-
-\textbf{STEP 2 :} The pilots put on their oxygen mask.
-
-\textbf{STEP 3 :}  The system sets :
-\label{sec:reqs}
-\begin{enumerate}
-\item the altitude to \SI{10000}{ft}  
-\item the speed to \SI{250}{kts} 
-\item the heading to Selected Mode
-\item  the SPD/MACH knob is set to SPD
-\end{enumerate}
-
-\textbf{STEP 4 :} There is an audio announcement of these actions,
-and the information is displayed on the FCU. 
-The actions will be active (Managed Mode) after a delay and Terrain mode will be displayed on the ND. Meanwhile, pilots can still modify the instructions before they become  active.
-
-\textbf{STEP 5 :} the system alerts the air traffic controller of the situation (Emergency depressurization and Emergency descent) and of the target altitude and speed.
-
-\textbf{STEP 6 :} pilots manage the systems and communications with ATC. They deploy
-=======
 In nominal scenario 1, it is an emergency descent with structural damage.
 
 In nominal scenario 2, it is an emergency descent without structural damage.
@@ -298,38 +239,11 @@ active.
 \textbf{STEP 3 :} the system alerts the air traffic controller of the situation (Emergency depressurization and Emergency descent) + target altitude and speed (+ vertical speed ?).
 
 \textbf{STEP 4 :} pilots manage the systems and communications with ATC. They deploy
->>>>>>> main
 the speedbrakes as needed.
 
 
 \section{Nominal scenario 2}
 
-<<<<<<< Balazs
-\textbf{Initial conditions:} The aircraft is flying at a typical A320 cruise altitude, both pilots are in the cockpit, the autopilot and auto-thrust are. An explosive depressurization occurs without structural damage to the aircraft.
-
-\textbf{STEP 1 :} A visual and audio alert informs the pilots of the situation.
-
-\textbf{STEP 2 :} The pilots put on their oxygen mask.
-
-\textbf{STEP 3 :} The system sets :
-\label{sec:reqs}
-\begin{enumerate}
-\item the altitude to \SI{10000}{ft}  
-\item the speed to \SI{250}{kts} 
-\item the heading to Selected Mode
-\item the SPD/MACH knob is set to SPD
-\end{enumerate}
-
-\textbf{STEP 4 :} There is an audio announcement of these actions,
-and the information is displayed on the FCU. 
-The actions will be active (Managed Mode) after a delay and Terrain mode will be displayed on the ND. Meanwhile, pilots can still modify the instructions before they become  active.
-
-\textbf{STEP 5 :} pilots set speed to selected mode and increase it to VMO + $\Delta.$.
-
-\textbf{STEP 6 :} the system alerts the air traffic controller of the situation (Emergency depressurization and Emergency descent) and of the target altitude and speed .
-
-\textbf{STEP 7 :} pilots manage the systems and communications with ATC. They deploy
-=======
 \textbf{Initial conditions:} The aircraft is flying at a typical A320 cruise altitude, both pilots are in the
 cockpit, the autopilot is engaged. An explosive depressurization occurs without
 structural damage to the aircraft.
@@ -350,7 +264,6 @@ active.
  depressurization and Emergency descent) + target altitude and speed (+ vertical speed ?).
 
 \textbf{STEP 5 :} pilots manage the systems and communications with ATC. They deploy
->>>>>>> main
 the speed brakes as needed.
 
 \section{Additional scenarios}
@@ -361,22 +274,7 @@ None
 
 % ===============================================================
 \chapter{Requirements}
-\label{sec:reqs}
-\begin{enumerate}[label=\textbf{REQ-\arabic* :}, leftmargin=2cm]
-    \item The system shall enable the aircraft to reach an altitude of 10000~ft without any intervention of the pilot in less than \textit{TBD} minutes.
-    \item The system shall detect the presence of structural damage and adapt the managed speed accordingly.
-    \item In case of structural damage, the system shall maintain the managed speed of the aircraft at 250~kts.
-    \item In case of the absence of any structural damage, the system shall maintain the managed speed of the aircraft at V\textsubscript{MO}.
-    \item The system shall set the HDG to Selected Mode, the SPD/MACH to SPD and display TERR on the ND.
-    \item Pilots shall be visually and audibly informed of each action the system is performing.
-    \item Pilots shall be able to cancel any spurious activation of the system in less than \textit{TBD} seconds and with \textit{TBD} buttons only (i.e., must be easy to control).
-    \item Pilots shall be able to modify any parameter set by the system in less than \textit{TBD} seconds and with \textit{TBD} buttons only (i.e., must be easy to control).
-    \item The system shall inform the ATCO of the EMER DES state of the aircraft, and the target parameters.
-\end{enumerate}
-
 % ===============================================================
-<<<<<<< Balazs
-=======
 \label{sec:reqs}
 \begin{enumerate}[label=\textbf{REQ-\arabic* :}, leftmargin=2cm]
     \item The system shall enable the aircraft to reach an altitude of 10000~ft without any intervention of the pilot in less than \textit{TBD} minutes.
@@ -390,7 +288,6 @@ None
     \item The system shall inform the ATC of the EMERGENCY DESCENT state of the aircraft, and the target parameters.
 \end{enumerate}
 
->>>>>>> main
 
 % ===============================================================
 \chapter{Open items}
