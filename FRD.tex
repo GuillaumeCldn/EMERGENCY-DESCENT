@@ -161,7 +161,6 @@ This document is the functional specification for the EMERGENCY DESCENT function
 \bibliography{bibFRD}
 }
 
-\newpage
 \section{Acronyms}
 
 \begin{table}[h]
@@ -216,54 +215,60 @@ The EMERGENCY DESCENT function provides the following features:
 \label{sec:OS}
 % ===============================================================
 
-In nominal scenario 1, it is an emergency descent with structural damage.
+In nominal scenario 1, it is an Emergency descent with structural damage, it is assumed that both pilots remain conscious throughout the emergency. 
 
-In nominal scenario 2, it is an emergency descent without structural damage.
+In nominal scenario 2, it is an Emergency descent without structural damage,it is assumed that both pilots remain conscious throughout the emergency.
 
 \section{Nominal scenario 1}
 
-\textbf{Initial conditions:} The aircraft is flying at a typical A320 cruise altitude, both pilots are in the
-cockpit, the autopilot is engaged. An explosive depressurization occurs resulting in
+\textbf{Initial conditions:} The aircraft is flying at a typical A320 cruise altitude, both pilots are in the cockpit, the autopilot and auto-thrust are engaged. An explosive depressurization occurs resulting in
 structural damage to the aircraft.
 
-\textbf{STEP 1 :} A visual and an audio alert inform the pilots of the situation. The pilots put
-on their oxygen mask.
+\textbf{STEP 1 :} A visual and an audio alert inform the pilots of the situation. 
 
-\textbf{STEP 2 :} The system sets the altitude to \SI{10000}{ft} and the speed to \SI{250}{kts} ; and sets
-the heading to Selected Mode. There is an audio announcement of these actions,
-and the information is displayed on the FCU. The SPD/MACH knob is set to SPD.
-Terrain mode is displayed on the ND. The actions will be active (Managed Mode) after a
-delay (few seconds). Meanwhile,  pilots can still modify the instructions before they become
-active.
+\textbf{STEP 2 :} The pilots put on their oxygen mask.
 
-\textbf{STEP 3 :} the system alerts the air traffic controller of the situation (Emergency depressurization and Emergency descent) + target altitude and speed (+ vertical speed ?).
+\textbf{STEP 3 :}  The system sets :
+\begin{enumerate}
+\item the altitude to \SI{10000}{ft}  
+\item the speed to \SI{250}{kts} 
+\item the heading to Selected Mode
+\item  the SPD/MACH knob is set to SPD
+\end{enumerate}
 
-\textbf{STEP 4 :} pilots manage the systems and communications with ATC. They deploy
-the speedbrakes as needed.
+\textbf{STEP 4 :} There is an audio announcement of these actions,
+and the information is displayed on the FCU. 
+The actions will be active (Managed Mode) after a delay and Terrain mode will be displayed on the ND. Meanwhile, pilots can still modify the instructions before they become  active.
 
+\textbf{STEP 5 :} the system alerts the air traffic controller of the situation (Emergency depressurization and Emergency descent) and of the target altitude and speed.
+
+\textbf{STEP 6 :} pilots manage the systems and communications with ATC. They deploy
 
 \section{Nominal scenario 2}
 
-\textbf{Initial conditions:} The aircraft is flying at a typical A320 cruise altitude, both pilots are in the
-cockpit, the autopilot is engaged. An explosive depressurization occurs without
-structural damage to the aircraft.
+\textbf{Initial conditions:} The aircraft is flying at a typical A320 cruise altitude, both pilots are in the cockpit, the autopilot and auto-thrust are engaged. An explosive depressurization occurs without structural damage to the aircraft.
 
-\textbf{STEP 1 :} A visual and audio alert informs the pilots of the situation. The pilots put on
-their oxygen mask.
+\textbf{STEP 1 :} A visual and audio alert informs the pilots of the situation.
 
-\textbf{STEP 2 :} The system sets the altitude to \SI{10000}{ft} and the speed to \SI{250}{kts} ; and sets
-the heading to Selected Mode. There is an audio announcement of these actions,
-and the information is displayed on the FCU. The SPD/MACH knob is set to SPD.
-Terrain mode is displayed on the ND. The actions will be active (Managed Mode) after a
-delay. Meanwhile, pilots can still modify the instructions before they become 
-active.
+\textbf{STEP 2 :} The pilots put on their oxygen mask.
 
-\textbf{STEP 3 :} pilots set speed to selected mode and increase it to V\textsubscript{MO}.
+\textbf{STEP 3 :} The system sets :
+\begin{enumerate}
+\item the altitude to \SI{10000}{ft}  
+\item the speed to \SI{250}{kts} 
+\item the heading to Selected Mode
+\item the SPD/MACH knob is set to SPD
+\end{enumerate}
 
-\textbf{STEP 4 :} the system alerts the air traffic controller of the situation (Emergency
- depressurization and Emergency descent) + target altitude and speed (+ vertical speed ?).
+\textbf{STEP 4 :} There is an audio announcement of these actions,
+and the information is displayed on the FCU. 
+The actions will be active (Managed Mode) after a delay and Terrain mode will be displayed on the ND. Meanwhile, pilots can still modify the instructions before they become  active.
 
-\textbf{STEP 5 :} pilots manage the systems and communications with ATC. They deploy
+\textbf{STEP 5 :} pilots set speed to selected mode and increase it to VMO + $\Delta.$.
+
+\textbf{STEP 6 :} the system alerts the air traffic controller of the situation (Emergency depressurization and Emergency descent) and of the target altitude and speed .
+
+\textbf{STEP 7 :} pilots manage the systems and communications with ATC. They deploy
 the speed brakes as needed.
 
 \section{Additional scenarios}
@@ -276,6 +281,7 @@ None
 \chapter{Requirements}
 % ===============================================================
 \label{sec:reqs}
+
 
 % Macro pour générer un tableau EMER DES
 \newcommand{\EMERDES}[4]{%
@@ -295,7 +301,7 @@ Comments: & #4 \\ \hline
 \vspace{0.5cm}
 }
 
-\begin{document}
+
 
 \EMERDES{001}{The system shall enable the aircraft to reach an altitude of 10000 ft or MSA, whichever is higher, at maximum vertical speed, without any intervention of the pilot, in less than TBD minutes.}{The system shall operate in any terrain environment, whether the pilots are operational or not.}{}
 
