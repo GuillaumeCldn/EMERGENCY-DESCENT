@@ -18,11 +18,11 @@
 \usepackage{float}
 \usepackage{fmtcount}
 \usepackage{fancyhdr}
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta, matrix, decorations.pathreplacing, calc}
-\usepackage{wrapfig}
-%\usetikzlibrary{graphs, graphdrawing}
-%\usegdlibrary{circular}
+% \usepackage{tikz}
+% \usetikzlibrary{arrows.meta, matrix, decorations.pathreplacing, calc}
+% \usepackage{wrapfig}
+% \usetikzlibrary{graphs, graphdrawing}
+% \usegdlibrary{circular}
 
 % Better diff symbol
 % \newcommand{\diff}{\ensuremath{\operatorname{d}\!}}
@@ -84,10 +84,10 @@ font=\normalfont\large\bfseries]{subsection}
     {\Huge \bfseries Functional Requirement Document\par}
     \vspace{1cm}
     
-    {\LARGE \textbf{DIRECT TO function}\par}
+    {\LARGE \textbf{EMERGENCY DESCENT function}\par}
     \vspace{2.5cm}
     
-    {\large Version \textbf{V01} \hspace{1cm} Date \textbf{26/02/2026}\par}
+    {\large Version \textbf{V01} \hspace{1cm} Date \textbf{09/03/2026}\par}
     
     \vfill
     
@@ -122,13 +122,14 @@ The purpose of the EMERGENCY DESCENT function is to have the aircraft descend to
 % ===============================================================
 \chapter{Record of revisions}
 % ===============================================================
+
 \begin{table}[h]
     \centering
     \begin{tabularx}{\textwidth}{|c|X|X|}
 		\hline
 		\textbf{Issue} & \textbf{DATE} & \textbf{Reason for revision} \\
 		\hline
-		V01 & 26/02/2026 & First issue \\
+		V01 & 09/03/2026 & First issue \\
 		\hline
 	\end{tabularx}
 \end{table}
@@ -139,24 +140,71 @@ The purpose of the EMERGENCY DESCENT function is to have the aircraft descend to
 
 \section{Objective}
 
+This document is the functional specification for the EMERGENCY DESCENT function.
+\begin{itemize}
+	\item Section \ref{sec:FD} provides a high-level description of the EMERGENCY DESCENT function. 
+	\item Section \ref{sec:OS} describes operational scenarios of the EMERGENCY DESCENT function. 
+	\item Section \ref{sec:reqs} contains "aircraft level" requirements for the EMERGENCY DESCENT function. 
+\end{itemize}
+
 \section{Applicability}
+
+\cite{BAD} is the baseline for this functional specification. Thus this document applies to any aircraft described by \cite{BAD}.
 
 \section{Reference documents}
 
+{
+\renewcommand{\chapter}[2]{} % Neutralize the automatic header
+\bibliographystyle{plain}
+\nocite{*}
+\bibliography{bibFRD}
+}
+
 \section{Acronyms}
+
+
+\begin{table}[h]
+    \centering
+    \begin{tabularx}{\textwidth}{lX}
+		AP & Autopilot \\
+		ND & Navigation Display \\
+		FCU & Flight Control Unit \\
+		IAS & Indicated Air Speed \\
+		MSA & Minimum Safe Altitude
+	\end{tabularx}
+\end{table}
 
 \section{Definitions}
 
 % ===============================================================
-\chapter{Function description}
+\chapter{Function Description}
+\label{sec:FD}
 % ===============================================================
 
+The purpose of the EMERGENCY DESCENT function is to navigate the aircraft from its current altitude to \SI{10000}{ft} or the MSA in the current sector, following the fastest descent profile.
+
+The EMERGENCY DESCENT function provides the following features:
+
+\begin{itemize}
+	\item It allows the flight crew to activate the EMERGENCY DESCENT. 
+	\item Upon activation of the EMERGENCY DESCENT:
+		\subitem The aircraft begins descending to \SI{10000}{ft} at \SI{250}{kts} IAS.
+		\subitem It allows the flight crew to select a desired altitude if different from \SI{10000}{ft}. 
+		\subitem It allows the flight crew to set a desired IAS for the descent. 
+	\item Upon arriving to the selected altitude, the aircraft levels off. 
+	\item It allows the flight crew to deactivate the EMERGENCY DESCENT, in which case the aircraft levels off at its current altitude.
+\end{itemize}
+
+\textbf{Note:} The flight crew is responsible for extending the airbrakes to increase the vertical speed of the descent. They are also responsible for the retraction of the airbrakes when the aircraft levels off. 
+
 % ===============================================================
-\chapter{Operational scenarios}
+\chapter{Operational Scenarios}
+\label{sec:OS}
 % ===============================================================
 
 % ===============================================================
 \chapter{Requirements}
+\label{sec:reqs}
 % ===============================================================
 
 % ===============================================================
