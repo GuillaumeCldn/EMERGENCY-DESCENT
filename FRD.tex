@@ -161,7 +161,7 @@ This document is the functional specification for the EMERGENCY DESCENT function
 \bibliography{bibFRD}
 }
 
-<<<<<<< Balazs
+
 \section{Acronyms}
 
 
@@ -203,11 +203,6 @@ This document is the functional specification for the EMERGENCY DESCENT function
 \label{sec:FD}
 % ===============================================================
 
-<<<<<<< Balazs
-The purpose of the EMERGENCY DESCENT function is to navigate the aircraft from its current altitude to \SI{10000}{ft} or the MSA in the current sector, following the fastest descent profile.
-=======
-The purpose of the EMERGENCY DESCENT function is to navigate the aircraft from its current altitude to \SI{10000}{ft} or the MSA, following the fastest safe descent profile.
->>>>>>> main
 
 The EMERGENCY DESCENT function provides the following features:
 
@@ -244,7 +239,7 @@ The EMERGENCY DESCENT function provides the following features:
 \label{sec:OS}
 % ===============================================================
 
-<<<<<<< Balazs
+
 In nominal scenario 1, it is an Emergency descent with structural damage, it is assumed that both pilots remain conscious throughout the emergency. 
 
 In nominal scenario 2, it is an Emergency descent without structural damage,it is assumed that both pilots remain conscious throughout the emergency.
@@ -274,37 +269,12 @@ The actions will be active (Managed Mode) after a delay and Terrain mode will be
 \textbf{STEP 5 :} the system alerts the air traffic controller of the situation (Emergency depressurization and Emergency descent) and of the target altitude and speed.
 
 \textbf{STEP 6 :} pilots manage the systems and communications with ATC. They deploy
-=======
-In nominal scenario 1, it is an emergency descent with structural damage.
 
-In nominal scenario 2, it is an emergency descent without structural damage.
-
-\section{Nominal scenario 1}
-
-\textbf{Initial conditions:} The aircraft is flying at a typical A320 cruise altitude, both pilots are in the
-cockpit, the autopilot is engaged. An explosive depressurization occurs resulting in
-structural damage to the aircraft.
-
-\textbf{STEP 1 :} A visual and an audio alert inform the pilots of the situation. The pilots put
-on their oxygen mask.
-
-\textbf{STEP 2 :} The system sets the altitude to \SI{10000}{ft} and the speed to \SI{250}{kts} ; and sets
-the heading to Selected Mode. There is an audio announcement of these actions,
-and the information is displayed on the FCU. The SPD/MACH knob is set to SPD.
-Terrain mode is displayed on the ND. The actions will be active (Managed Mode) after a
-delay (few seconds). Meanwhile,  pilots can still modify the instructions before they become
-active.
-
-\textbf{STEP 3 :} the system alerts the air traffic controller of the situation (Emergency depressurization and Emergency descent) + target altitude and speed (+ vertical speed ?).
-
-\textbf{STEP 4 :} pilots manage the systems and communications with ATC. They deploy
->>>>>>> main
 the speedbrakes as needed.
 
 
 \section{Nominal scenario 2}
 
-<<<<<<< Balazs
 \textbf{Initial conditions:} The aircraft is flying at a typical A320 cruise altitude, both pilots are in the cockpit, the autopilot and auto-thrust are. An explosive depressurization occurs without structural damage to the aircraft.
 
 \textbf{STEP 1 :} A visual and audio alert informs the pilots of the situation.
@@ -329,28 +299,7 @@ The actions will be active (Managed Mode) after a delay and Terrain mode will be
 \textbf{STEP 6 :} the system alerts the air traffic controller of the situation (Emergency depressurization and Emergency descent) and of the target altitude and speed .
 
 \textbf{STEP 7 :} pilots manage the systems and communications with ATC. They deploy
-=======
-\textbf{Initial conditions:} The aircraft is flying at a typical A320 cruise altitude, both pilots are in the
-cockpit, the autopilot is engaged. An explosive depressurization occurs without
-structural damage to the aircraft.
 
-\textbf{STEP 1 :} A visual and audio alert informs the pilots of the situation. The pilots put on
-their oxygen mask.
-
-\textbf{STEP 2 :} The system sets the altitude to \SI{10000}{ft} and the speed to \SI{250}{kts} ; and sets
-the heading to Selected Mode. There is an audio announcement of these actions,
-and the information is displayed on the FCU. The SPD/MACH knob is set to SPD.
-Terrain mode is displayed on the ND. The actions will be active (Managed Mode) after a
-delay. Meanwhile, pilots can still modify the instructions before they become 
-active.
-
-\textbf{STEP 3 :} pilots set speed to selected mode and increase it to V\textsubscript{MO}.
-
-\textbf{STEP 4 :} the system alerts the air traffic controller of the situation (Emergency
- depressurization and Emergency descent) + target altitude and speed (+ vertical speed ?).
-
-\textbf{STEP 5 :} pilots manage the systems and communications with ATC. They deploy
->>>>>>> main
 the speed brakes as needed.
 
 \section{Additional scenarios}
@@ -375,7 +324,7 @@ None
 \end{enumerate}
 
 % ===============================================================
-<<<<<<< Balazs
+
 =======
 \label{sec:reqs}
 \begin{enumerate}[label=\textbf{REQ-\arabic* :}, leftmargin=2cm]
@@ -390,7 +339,7 @@ None
     \item The system shall inform the ATC of the EMERGENCY DESCENT state of the aircraft, and the target parameters.
 \end{enumerate}
 
->>>>>>> main
+
 
 % ===============================================================
 \chapter{Open items}
