@@ -18,6 +18,7 @@
 \usepackage{float}
 \usepackage{fmtcount}
 \usepackage{fancyhdr}
+\usepackage{enumitem}
 % \usepackage{tikz}
 % \usetikzlibrary{arrows.meta, matrix, decorations.pathreplacing, calc}
 % \usepackage{wrapfig}
@@ -202,9 +203,77 @@ The EMERGENCY DESCENT function provides the following features:
 \label{sec:OS}
 % ===============================================================
 
+In nominal scenario 1, it is an Emergency descent with structural damage.
+
+In nominal scenario 2, it is an Emergency descent without structural damage.
+
+\section{Nominal scenario 1}
+
+\textbf{Initial conditions:} The aircraft is flying at a typical A320 cruise altitude, both pilots are in the
+cockpit, the autopilot is engaged. An explosive depressurization occurs resulting in
+structural damage to the aircraft.
+
+\textbf{STEP 1 :} A visual and an audio alert inform the pilots of the situation. The pilots put
+on their oxygen mask.
+
+\textbf{STEP 2 :} The system sets the altitude to \SI{10000}{ft} and the speed to \SI{250}{kts} ; and sets
+the heading to Selected Mode. There is an audio announcement of these actions,
+and the information is displayed on the FCU. The SPD/MACH knob is set to SPD.
+Terrain mode is displayed on the ND. The actions will be active (Managed Mode) after a
+delay (few seconds). Meanwhile,  pilots can still modify the instructions before they become
+active.
+
+\textbf{STEP 3 :} the system alerts the air traffic controller of the situation (Emergency depressurization and Emergency descent) + target altitude and speed (+ vertical speed ?).
+
+\textbf{STEP 4 :} pilots manage the systems and communications with ATC. They deploy
+the speedbrakes as needed.
+
+
+\section{Nominal scenario 2}
+
+\textbf{Initial conditions:} The aircraft is flying at a typical A320 cruise altitude, both pilots are in the
+cockpit, the autopilot is engaged. An explosive depressurization occurs without
+structural damage to the aircraft.
+
+\textbf{STEP 1 :} A visual and audio alert informs the pilots of the situation. The pilots put on
+their oxygen mask.
+
+\textbf{STEP 2 :} The system sets the altitude to \SI{10000}{ft} and the speed to \SI{250}{kts} ; and sets
+the heading to Selected Mode. There is an audio announcement of these actions,
+and the information is displayed on the FCU. The SPD/MACH knob is set to SPD.
+Terrain mode is displayed on the ND. The actions will be active (Managed Mode) after a
+delay. Meanwhile, pilots can still modify the instructions before they become 
+active.
+
+\textbf{STEP 3 :} pilots set speed to selected mode and increase it to VMO.
+
+\textbf{STEP 4 :} the system alerts the air traffic controller of the situation (Emergency
+ depressurization and Emergency descent) + target altitude and speed (+ vertical speed ?).
+
+\textbf{STEP 5 :} pilots manage the systems and communications with ATC. They deploy
+the speed brakes as needed.
+
+\section{Additional scenarios}
+
+None
+
+(ideas for other scenarios : during climb, descent, spurious activation, …)
+
 % ===============================================================
 \chapter{Requirements}
 \label{sec:reqs}
+\begin{enumerate}[label=\textbf{REQ-\arabic* :}, leftmargin=2cm]
+    \item The system shall enable the aircraft to reach an altitude of 10000~ft without any intervention of the pilot in less than \textit{TBD} minutes.
+    \item The system shall detect the presence of structural damage and adapt the managed speed accordingly.
+    \item In case of structural damage, the system shall maintain the managed speed of the aircraft at 250~kts.
+    \item In case of the absence of any structural damage, the system shall maintain the managed speed of the aircraft at V\textsubscript{MO}.
+    \item The system shall set the HDG to Selected Mode, the SPD/MACH to SPD and display TERR on the ND.
+    \item Pilots shall be visually and audibly informed of each action the system is performing.
+    \item Pilots shall be able to cancel any spurious activation of the system in less than \textit{TBD} seconds and with \textit{TBD} buttons only (i.e., must be easy to control).
+    \item Pilots shall be able to modify any parameter set by the system in less than \textit{TBD} seconds and with \textit{TBD} buttons only (i.e., must be easy to control).
+    \item The system shall inform the ATCO of the EMER DES state of the aircraft, and the target parameters.
+\end{enumerate}
+
 % ===============================================================
 
 % ===============================================================
