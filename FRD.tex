@@ -182,17 +182,17 @@ This document is the functional specification for the EMERGENCY DESCENT function
 \label{sec:FD}
 % ===============================================================
 
-The purpose of the EMERGENCY DESCENT function is to navigate the aircraft from its current altitude to \SI{10000}{ft} or the MSA in the current sector, following the fastest descent profile.
+The purpose of the EMERGENCY DESCENT function is to navigate the aircraft from its current altitude to \SI{10000}{ft} or the MSA, following the fastest safe descent profile.
 
 The EMERGENCY DESCENT function provides the following features:
 
 \begin{itemize}
 	\item It allows the flight crew to activate the EMERGENCY DESCENT. 
 	\item Upon activation of the EMERGENCY DESCENT:
-		\subitem The aircraft begins descending to \SI{10000}{ft} at \SI{250}{kts} IAS.
+		\subitem The aircraft begins descending to \SI{10000}{ft}, or the published MSA (whichever is greater) at \SI{250}{kts} IAS.
 		\subitem It allows the flight crew to select a desired altitude if different from \SI{10000}{ft}. 
 		\subitem It allows the flight crew to set a desired IAS for the descent. 
-	\item Upon arriving to the selected altitude, the aircraft levels off. 
+	\item Upon arriving to the selected altitude, the aircraft levels off in ALT mode: the EMERGENCY DESCENT function is finished. 
 	\item It allows the flight crew to deactivate the EMERGENCY DESCENT, in which case the aircraft levels off at its current altitude.
 \end{itemize}
 
