@@ -281,17 +281,49 @@ None
 \chapter{Requirements}
 % ===============================================================
 \label{sec:reqs}
-\begin{enumerate}[label=\textbf{REQ-\arabic* :}, leftmargin=2cm]
-    \item The system shall enable the aircraft to reach an altitude of 10000~ft without any intervention of the pilot in less than \textit{TBD} minutes.
-    \item The system shall detect the presence of structural damage and adapt the managed speed accordingly.
-    \item In case of structural damage, the system shall maintain the managed speed of the aircraft at 250~kts.
-    \item In case of the absence of any structural damage, the system shall maintain the managed speed of the aircraft at V\textsubscript{MO}.
-    \item The system shall set the HDG to Selected Mode, the SPD/MACH to SPD and display TERR on the ND.
-    \item Pilots shall be visually and audibly informed of each action the system is performing.
-    \item Pilots shall be able to cancel any spurious activation of the system in less than \textit{TBD} seconds and with \textit{TBD} buttons only (i.e., must be easy to control).
-    \item Pilots shall be able to modify any parameter set by the system in less than \textit{TBD} seconds and with \textit{TBD} buttons only (i.e., must be easy to control).
-    \item The system shall inform the ATC of the EMERGENCY DESCENT state of the aircraft, and the target parameters.
-\end{enumerate}
+
+
+% Macro pour générer un tableau EMER DES
+\newcommand{\EMERDES}[4]{%
+\begin{tabular}{|p{\textwidth}|}
+\hline
+\textbf{EMER DES - #1} \\ \hline
+#2 \\ \hline
+\begin{tabular}{|p{3cm}|p{\dimexpr\textwidth-3cm-4\tabcolsep}|}
+\hline
+Rationale: & #3 \\ \hline
+\end{tabular} \\ \hline
+\begin{tabular}{|p{3cm}|p{\dimexpr\textwidth-3cm-4\tabcolsep}|}
+\hline
+Comments: & #4 \\ \hline
+\end{tabular} \\ \hline
+\end{tabular}
+\vspace{0.5cm}
+}
+
+
+
+\EMERDES{001}{The system shall enable the aircraft to reach an altitude of 10000 ft or MSA, whichever is higher, at maximum vertical speed, without any intervention of the pilot, in less than TBD minutes.}{The system shall operate in any terrain environment, whether the pilots are operational or not.}{}
+
+\EMERDES{002}{The system shall maintain the IAS of the aircraft at 250 kts throughout the whole descent if no pilot override has been provided.}{In case of structural damage, the maximum speed would be 250 kts. Otherwise, the pilots, if conscious, could manually increase it to VMO - delta.}{}
+
+\EMERDES{003}{The system shall set the HDG to Selected Mode and SPD/MACH to SPD in less than TBD seconds after the initial system activation.}{As stated in the EMER DES procedures.}{}
+
+\EMERDES{004}{The system shall display TERR on ND after the delay in less than TBD seconds.}{Terrain should be displayed for situational awareness. This display should happen after the delay, when descent is initiated to avoid overwhelming pilots with information.}{Whether the system should act accordingly to the terrain will be discussed at a later stage.}
+
+\EMERDES{005}{The pilots shall be informed visually and audibly of each action that the system is intending to perform.}{Consequence of the pilot interview. The pilots should be aware of each and every action performed automatically by the system. In case of smoke in the cockpit (explosive decompression), the information should be audible as well.}{}
+
+\EMERDES{006}{The pilots shall be able to cancel any spurious activation of the system with a single action.}{The system should be easily cancellable if spurious.}{}
+
+\EMERDES{007}{The pilots shall be able to modify any parameter set by the system with a single action.}{The system should be easily modifiable by pilots (change of HDG, speed increased to VMO-delta,…).}{}
+
+\EMERDES{008}{The system shall inform the ATC of the EMER DES mode of the aircraft, the target parameters as well as the current vertical speed of the aircraft.}{}{We will see at a later stage if we could use ADS-C or CPDLC for specifying the requirements for ATC communications.}
+
+\EMERDES{009}{The system shall be disengaged as soon as the aircraft is stabilised at 10000 ft or MSA, whichever is higher.}{The system should be disabled when stabilisation is reached, at the lowest “breathable” altitude.}{}
+
+\EMERDES{010}{The system shall be disengaged as soon as any other vertical navigation mode is enabled.}{If the pilots decide to override the system, or when another vertical mode becomes active, the EMER DES system can be disabled.}{}
+
+
 
 
 % ===============================================================
