@@ -110,7 +110,7 @@ font=\normalfont\large\bfseries]{subsection}
 \chapter{Executive summary}
 % ===============================================================
 
-This document is the functional specification of the EMERGENCY DESCENT function. It provides “aircraft-level” requirements that will be the main input for systems specifications.
+This document is the functional specification of the EMERGENCY DESCENT function. It provides “aircraft level” requirements that will be the main input for systems specifications.
 
 The purpose of the EMERGENCY DESCENT function is to have the aircraft descend to a safe altitude in the case of loss of cabin pressurisation.
 
@@ -168,6 +168,8 @@ This document is the functional specification for the EMERGENCY DESCENT function
     \centering
     \begin{tabularx}{\textwidth}{lX}
 		AP & Autopilot \\
+		ATC & Air Traffic Control \\
+		V\textsubscript{MO} & Minimum Operating Speed \\
 		ND & Navigation Display \\
 		FCU & Flight Control Unit \\
 		IAS & Indicated Air Speed \\
@@ -268,6 +270,7 @@ None
 
 % ===============================================================
 \chapter{Requirements}
+% ===============================================================
 \label{sec:reqs}
 \begin{enumerate}[label=\textbf{REQ-\arabic* :}, leftmargin=2cm]
     \item The system shall enable the aircraft to reach an altitude of 10000~ft without any intervention of the pilot in less than \textit{TBD} minutes.
@@ -281,7 +284,6 @@ None
     \item The system shall inform the ATCO of the EMER DES state of the aircraft, and the target parameters.
 \end{enumerate}
 
-% ===============================================================
 
 % ===============================================================
 \chapter{Open items}
