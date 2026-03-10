@@ -161,20 +161,24 @@ This document is the functional specification for the EMERGENCY DESCENT function
 \bibliography{bibFRD}
 }
 
+\newpage
 \section{Acronyms}
 
-
 \begin{table}[h]
-    \centering
+	\label{tab:acronyms}
     \begin{tabularx}{\textwidth}{lX}
 		AP & Autopilot \\
 		ATC & Air Traffic Control \\
+		ATHR & Auto Thrust \\
 		V\textsubscript{MO} & Minimum Operating Speed \\
 		ND & Navigation Display \\
 		FCU & Flight Control Unit \\
 		IAS & Indicated Air Speed \\
 		MSA & Minimum Sector Altitude \\
-		TBD & To Be Determined
+		TBD & To Be Determined \\
+		SPD & Speed \\
+		HDG & Heading \\
+		TERR & Terrain \\
 	\end{tabularx}
 \end{table}
 
@@ -193,16 +197,15 @@ The EMERGENCY DESCENT function provides the following features:
 	\item It allows the flight crew to activate the EMERGENCY DESCENT. 
 	\item Upon activation of the EMERGENCY DESCENT:
 		\subitem The aircraft begins descending to \SI{10000}{ft}, or the published MSA (whichever is greater) at \SI{250}{kts} IAS.
-		\subitem It allows the flight crew to select a desired altitude if different from \SI{10000}{ft}. 
+		\subitem It allows the flight crew to select a desired altitude if different the altitude selected by the EMERGENCY DESCENT function.
 		\subitem It allows the flight crew to set a desired IAS for the descent. 
 	\item Upon arriving to the selected altitude, the aircraft levels off in ALT mode: the EMERGENCY DESCENT function is finished. 
 	\item It allows the flight crew to deactivate the EMERGENCY DESCENT, in which case the aircraft levels off at its current altitude.
 \end{itemize}
 
-% TODO: Define exit condition for EMERGENCY DESCENT
-% Update FD to take MSA into account
+% TODO:
 % Pilots are assumed conscious
-% 250kts is safe 
+% 250 kts is safe 
 % cf. WhatsApp
 % Delay to start descent
 
