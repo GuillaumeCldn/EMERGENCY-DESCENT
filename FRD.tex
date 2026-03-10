@@ -110,7 +110,7 @@ font=\normalfont\large\bfseries]{subsection}
 \chapter{Executive summary}
 % ===============================================================
 
-This document is the functional specification of the EMERGENCY DESCENT function. It provides “aircraft level” requirements that will be the main input for systems specifications.
+This document is the functional specification of the EMERGENCY DESCENT function. It provides “aircraft-level” requirements that will be the main input for systems specifications.
 
 The purpose of the EMERGENCY DESCENT function is to have the aircraft descend to a safe altitude in the case of loss of cabin pressurisation.
 
@@ -161,7 +161,6 @@ This document is the functional specification for the EMERGENCY DESCENT function
 \bibliography{bibFRD}
 }
 
-
 \section{Acronyms}
 
 
@@ -173,26 +172,6 @@ This document is the functional specification for the EMERGENCY DESCENT function
 		FCU & Flight Control Unit \\
 		IAS & Indicated Air Speed \\
 		MSA & Minimum Safe Altitude
-=======
-\newpage
-\section{Acronyms}
-
-\begin{table}[h]
-	\label{tab:acronyms}
-    \begin{tabularx}{\textwidth}{lX}
-		AP & Autopilot \\
-		ATC & Air Traffic Control \\
-		ATHR & Auto Thrust \\
-		V\textsubscript{MO} & Minimum Operating Speed \\
-		ND & Navigation Display \\
-		FCU & Flight Control Unit \\
-		IAS & Indicated Air Speed \\
-		MSA & Minimum Sector Altitude \\
-		TBD & To Be Determined \\
-		SPD & Speed \\
-		HDG & Heading \\
-		TERR & Terrain \\
->>>>>>> main
 	\end{tabularx}
 \end{table}
 
@@ -203,6 +182,7 @@ This document is the functional specification for the EMERGENCY DESCENT function
 \label{sec:FD}
 % ===============================================================
 
+The purpose of the EMERGENCY DESCENT function is to navigate the aircraft from its current altitude to \SI{10000}{ft} or the MSA in the current sector, following the fastest descent profile.
 
 The EMERGENCY DESCENT function provides the following features:
 
@@ -216,28 +196,12 @@ The EMERGENCY DESCENT function provides the following features:
 	\item It allows the flight crew to deactivate the EMERGENCY DESCENT, in which case the aircraft levels off at its current altitude.
 \end{itemize}
 
-=======
-		\subitem The aircraft begins descending to \SI{10000}{ft}, or the published MSA (whichever is greater) at \SI{250}{kts} IAS.
-		\subitem It allows the flight crew to select a desired altitude if different the altitude selected by the EMERGENCY DESCENT function.
-		\subitem It allows the flight crew to set a desired IAS for the descent. 
-	\item Upon arriving to the selected altitude, the aircraft levels off in ALT mode: the EMERGENCY DESCENT function is finished. 
-	\item The EMERGENCY DESCENT function can be deactivated at any time by selecting another vertical navigation AP funtion. 
-\end{itemize}
-
-% TODO:
-% Pilots are assumed conscious
-% 250 kts is safe 
-% cf. WhatsApp
-% Delay to start descent
-
-
 \textbf{Note:} The flight crew is responsible for extending the airbrakes to increase the vertical speed of the descent. They are also responsible for the retraction of the airbrakes when the aircraft levels off. 
 
 % ===============================================================
 \chapter{Operational Scenarios}
 \label{sec:OS}
 % ===============================================================
-
 
 In nominal scenario 1, it is an Emergency descent with structural damage, it is assumed that both pilots remain conscious throughout the emergency. 
 
@@ -268,7 +232,6 @@ The actions will be active (Managed Mode) after a delay and Terrain mode will be
 \textbf{STEP 5 :} the system alerts the air traffic controller of the situation (Emergency depressurization and Emergency descent) and of the target altitude and speed.
 
 \textbf{STEP 6 :} pilots manage the systems and communications with ATC. They deploy
-
 the speedbrakes as needed.
 
 
@@ -293,12 +256,11 @@ the speedbrakes as needed.
 and the information is displayed on the FCU. 
 The actions will be active (Managed Mode) after a delay and Terrain mode will be displayed on the ND. Meanwhile, pilots can still modify the instructions before they become  active.
 
-\textbf{STEP 5 :} pilots set speed to selected mode and increase it to VMO + $\Delta.$.
+\textbf{STEP 5 :} pilots set speed to selected mode and increase it to VMO + $\Delta.$
 
 \textbf{STEP 6 :} the system alerts the air traffic controller of the situation (Emergency depressurization and Emergency descent) and of the target altitude and speed .
 
 \textbf{STEP 7 :} pilots manage the systems and communications with ATC. They deploy
-
 the speed brakes as needed.
 
 \section{Additional scenarios}
@@ -323,22 +285,6 @@ None
 \end{enumerate}
 
 % ===============================================================
-
-=======
-\label{sec:reqs}
-\begin{enumerate}[label=\textbf{REQ-\arabic* :}, leftmargin=2cm]
-    \item The system shall enable the aircraft to reach an altitude of 10000~ft without any intervention of the pilot in less than \textit{TBD} minutes.
-    \item The system shall detect the presence of structural damage and adapt the managed speed accordingly.
-    \item In case of structural damage, the system shall maintain the managed speed of the aircraft at 250~kts.
-    \item In case of the absence of any structural damage, the system shall maintain the managed speed of the aircraft at V\textsubscript{MO}.
-    \item The system shall set the HDG to Selected Mode, the SPD/MACH to SPD and display TERR on the ND.
-    \item Pilots shall be visually and audibly informed of each action the system is performing.
-    \item Pilots shall be able to cancel any spurious activation of the system in less than \textit{TBD} seconds and with \textit{TBD} buttons only (i.e., must be easy to control).
-    \item Pilots shall be able to modify any parameter set by the system in less than \textit{TBD} seconds and with \textit{TBD} buttons only (i.e., must be easy to control).
-    \item The system shall inform the ATC of the EMERGENCY DESCENT state of the aircraft, and the target parameters.
-\end{enumerate}
-
-
 
 % ===============================================================
 \chapter{Open items}
